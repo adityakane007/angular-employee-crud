@@ -1,0 +1,57 @@
+<br>
+<div class="row">
+    <div class="col-sm-10 title-align">
+        <h4>Employee Registration</h4>
+    </div>
+    <div class="col-sm-2 button-align float-end">
+        <a [routerLink]="['/login']" mat-raised-button color="primary">Back</a>
+    </div>
+</div>
+<hr>
+<mat-card>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="row">
+                <div class="col-sm-6">
+                    <mat-form-field appearance="outline" class="form-full-width">
+                        <mat-label>Enter your name</mat-label>
+                        <input matInput placeholder="abc pqr xyz" [formControl]="name" required>
+                        <mat-error *ngIf="name.errors?.['required']">{{getNameMessage()}}</mat-error>
+                        <mat-error *ngIf="name.errors?.['pattern']">{{getNameMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                    <mat-form-field appearance="outline" class="form-full-width">
+                        <mat-label>Enter your address</mat-label>
+                        <input matInput [formControl]="address" required>
+                        <mat-error *ngIf="address.errors?.['required']">{{getAddressMessage()}}</mat-error>
+                        <mat-error *ngIf="address.errors?.['pattern']">{{getAddressMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <mat-form-field appearance="outline" class="form-full-width">
+                        <mat-label>Enter your mobile</mat-label>
+                        <input matInput placeholder="xxxxxxxxxx" [formControl]="mobile" required>
+                        <mat-error *ngIf="mobile.errors?.['required']">{{getMobileMessage()}}</mat-error>
+                        <mat-error *ngIf="mobile.errors?.['maxlength']">{{getMobileMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                    <mat-form-field appearance="outline" class="form-full-width">
+                        <mat-label>Enter your email</mat-label>
+                        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                        <mat-error *ngIf="email.invalid">{{getEmailMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+            </div> <br>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button mat-raised-button type="submit" value="Submit" color="primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-card>

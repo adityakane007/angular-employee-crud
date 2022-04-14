@@ -1,0 +1,23 @@
+.row {
+    text-align: center;
+}
+
+.title-align {
+    float: left;
+    text-align: left;
+}
+
+.button-align {
+    float: right;
+}
+
+.form-row {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.form-full-width {
+    width: 30%;
+}

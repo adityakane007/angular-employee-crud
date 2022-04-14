@@ -1,0 +1,58 @@
+<br>
+<div class="row">
+    <div class="col-sm-10 title-align">
+        <h4>Employee Details</h4>
+    </div>
+    <div class="col-sm-2 button-align float-end">
+        <a [routerLink]="['/addemployee']" class="btn btn-primary m-1 float-right">Add Employee</a>
+    </div>
+</div>
+<hr>
+<!-- <div class="row">
+    <div class="col-sm-4" *ngFor="let emp of employeeData">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{emp.name}}</h5>
+                <p class="card-text">
+                    Location : {{emp.address}} <br>
+                    Email : {{emp.email}}<br>
+                    Mobile : {{emp.mobile}}</p>
+                <a [routerLink]="['/editemployee/',emp.id]" class="btn btn-primary m-1">Edit</a>
+                <button class="btn btn-danger" (click)="deleteemployee(emp.id)">Delete</button>
+            </div>
+            <br><br>
+            <hr>
+        </div>
+    </div>
+</div> -->
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col" colspan="3" style="text-align:center;">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employeeData">
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.address}}</td>
+            <td>{{emp.email}}</td>
+            <td>{{emp.mobile}}</td>
+            <td style="width: 5%;">
+                <a [routerLink]="['/viewemployee/',emp.id]" class="btn btn-primary"><mat-icon>visibility</mat-icon></a>
+            </td>
+            <td style="width: 5%;"><a [routerLink]="['/editemployee/',emp.id]" class="btn btn-primary"><mat-icon>edit</mat-icon></a></td>
+            <td style="width: 5%;"><button class="btn btn-danger" (click)="deleteemployee(emp.id)"><mat-icon>delete</mat-icon></button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+<mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+</mat-paginator>
